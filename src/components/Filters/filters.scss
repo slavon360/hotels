@@ -1,0 +1,34 @@
+.filters-wrp{
+  padding: 0 10px 0;
+  .pool{
+    margin: 15px 5px;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    label{
+      padding-left: 15px;
+      cursor: pointer;
+    }
+  }
+}
+.hotel-name-wrp{
+  position: relative;
+  padding: 0 5px;
+  .hotel-name-title{
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  input{
+    padding: 10px 5px 10px 30px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .search-icon{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 45px;
+    left: 12px;
+  }
+}

@@ -1,0 +1,172 @@
+.star.star-unchecked > svg > g > polygon,
+.star.star-unchecked > svg > g > path:not(:last-child) {
+  fill: transparent !important; }
+
+.star.star-checked .star-value {
+  color: #fff; }
+
+.stars-filter-wrp .stars-title {
+  font-weight: 700;
+  margin-bottom: 15px; }
+
+.stars-filter-wrp .stars-wrp {
+  display: flex;
+  justify-content: space-between; }
+  .stars-filter-wrp .stars-wrp .star {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer; }
+    .stars-filter-wrp .stars-wrp .star:first-child .star-value {
+      left: 35%; }
+    .stars-filter-wrp .stars-wrp .star:hover .star-value {
+      color: #fff; }
+    .stars-filter-wrp .stars-wrp .star:hover > svg > g > polygon,
+    .stars-filter-wrp .stars-wrp .star:hover > svg > g > path {
+      fill: #03a9f4 !important; }
+    .stars-filter-wrp .stars-wrp .star .star-value {
+      position: absolute;
+      top: 36%;
+      left: 40%; }
+
+@media screen and (min-width: 1366px) {
+  .stars-filter-wrp .stars-wrp {
+    justify-content: space-around; } }
+
+.filters-wrp {
+  padding: 0 10px 0; }
+  .filters-wrp .pool {
+    margin: 15px 5px;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; }
+    .filters-wrp .pool label {
+      padding-left: 15px;
+      cursor: pointer; }
+
+.hotel-name-wrp {
+  position: relative;
+  padding: 0 5px; }
+  .hotel-name-wrp .hotel-name-title {
+    font-weight: 700;
+    margin-bottom: 15px; }
+  .hotel-name-wrp input {
+    padding: 10px 5px 10px 30px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box; }
+  .hotel-name-wrp .search-icon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 45px;
+    left: 12px; }
+
+.hotel-address {
+  display: inline-block;
+  padding-right: 10px; }
+
+.hotel-description {
+  margin: 15px 0; }
+
+.hotel-star-empty > svg > g > path,
+.hotel-star-empty > svg > g > polygon {
+  fill: #bbb !important; }
+
+.hotel-star-filled > svg > g > path:last-child,
+.hotel-star-filled > svg > g > polygon {
+  fill: #271818 !important; }
+
+.hotel-container {
+  min-height: 200px; }
+  .hotel-container .more-info {
+    overflow: hidden;
+    height: 0;
+    transition: all .5s; }
+  .hotel-container .more-info.showed {
+    height: 95px;
+    padding: 20px 10px; }
+
+.hotel-image-wrp, .hotel-info {
+  display: inline-block; }
+
+.hotel-image-wrp {
+  background-color: #ccc;
+  min-width: 250px;
+  height: 204px; }
+
+.hotel-info {
+  width: calc(100% - 250px);
+  height: 204px;
+  vertical-align: top; }
+
+.hotel-info-left {
+  display: inline-block;
+  height: 100%;
+  width: 75%;
+  padding: 10px 0 0 10px;
+  box-sizing: border-box;
+  vertical-align: top; }
+  .hotel-info-left .hotel-info-title {
+    font-size: 24px;
+    width: 250px;
+    margin-bottom: 15px; }
+  .hotel-info-left .hotel-stars > div {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px; }
+
+.hotel-info-right {
+  display: inline-block;
+  width: 25%;
+  box-sizing: border-box;
+  padding: 25px 15px 10px;
+  height: 100%; }
+  .hotel-info-right .hotel-price {
+    font-size: 24px;
+    font-weight: 700; }
+  .hotel-info-right .hotel-details-btn {
+    outline: none;
+    background-color: #d25021;
+    cursor: pointer;
+    width: 100%;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    -webkit-transform: translateY(80px);
+            transform: translateY(80px);
+    height: 40px;
+    font-size: 16px; }
+
+.hotel-wrp {
+  border: 1px solid #aaa;
+  margin-bottom: 15px; }
+
+.hotels-wrp {
+  padding: 20px 15px; }
+  .hotels-wrp .left-side-filters {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top; }
+  .hotels-wrp .right-side-hotels {
+    display: inline-block;
+    width: 75%;
+    vertical-align: top; }
+
+@media screen and (max-width: 991px) {
+  .hotels-wrp .left-side-filters {
+    display: block;
+    margin-bottom: 45px;
+    width: 100%; }
+  .hotels-wrp .right-side-hotels {
+    display: block;
+    width: 100%; } }
+
+body {
+  margin: 0;
+  font-family: sans-serif; }
+

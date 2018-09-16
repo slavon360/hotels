@@ -1,0 +1,51 @@
+.star.star-unchecked > svg > g > polygon,
+.star.star-unchecked > svg > g > path:not(:last-child){
+  fill: transparent !important;
+}
+.star.star-checked .star-value{
+  color: #fff;
+}
+.stars-filter-wrp{
+  .stars-title{
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  .stars-wrp{
+    display: flex;
+    justify-content: space-between;
+    .star{
+      width: 45px;
+      height: 45px;
+      position: relative;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      &:first-child{
+        .star-value{
+          left: 35%;
+        }
+      }
+      &:hover{
+        .star-value{
+          color: #fff;
+        }
+        > svg > g > polygon,
+        > svg > g > path{
+          fill: rgb(3, 169, 244) !important;
+        }
+      }
+      .star-value{
+        position: absolute;
+        top: 36%;
+        left: 40%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .stars-filter-wrp .stars-wrp{
+    justify-content: space-around;
+  }
+}

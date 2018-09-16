@@ -1,0 +1,27 @@
+.hotels-wrp{
+  padding: 20px 15px;
+  .left-side-filters{
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+  }
+  .right-side-hotels{
+    display: inline-block;
+    width: 75%;
+    vertical-align: top;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .hotels-wrp{
+    .left-side-filters{
+      display: block;
+      margin-bottom: 45px;
+      width: 100%;
+    }
+    .right-side-hotels{
+      display: block;
+      width: 100%;
+    }
+  }
+}
