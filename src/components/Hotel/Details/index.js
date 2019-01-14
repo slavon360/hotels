@@ -7,7 +7,10 @@ const details = ({hotel}) => (
     <div className="hotel-address">Address:</div>
     <div className="hotel-address">{hotel.address}</div>
     <div className="hotel-description">{hotel.description}</div>
-    <div className="hotel-has-pool">Pool: {hotel.hasPool === 'true' ? ' Yes' : ' No'}</div>
+    <div className="hotel-has-pool">
+      <span className="hotel-pool-label">Pool: </span>
+      <span className="hotel-pool-value">{hotel.hasPool === 'true' ? ' Yes' : ' No'}</span>
+    </div>
   </Fragment>
 )
 

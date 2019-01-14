@@ -1,50 +1,42 @@
 import React, { Component } from 'react';
-import { trackWindowScroll } from 'react-lazy-load-image-component';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/hotels'
 import Filters from '../../components/Filters';
 import HotelsList from '../../components/HotelsList';
-import { hotels } from '../../../data.json';
 
 import './hotels.scss';
 
 class Hotels extends Component{
   state = {
-    initHotels: hotels,
-    hotels,
-    stars: ['0+', '2', '3', '4', '5'],
     rate: '3',
     hasPool: 'false',
     hotelName: '',
   }
   componentDidMount () {
-    const { rate } = this.state;
-    this.filterHotelsByRate(rate);
-  }
-  showDetails = (hotelName) => {
-    let { hotels } = this.state;
-    const updHotels = hotels.map(hotel => ({
-      ...hotel,
-      showDetails: hotelName === hotel.name ? !hotel.showDetails : hotel.showDetails,
-    }));
-    this.setState({ hotels: updHotels });
+    const { rate, hasPool, hotelName } = this.state;
+    this.props.filterHotels({ rate, hasPool, hotelName });
   }
   filterHotelsByRate = (val) => {
-    let { initHotels, hasPool, hotelName } = this.state;
-    const updHotels = initHotels.filter(hotel => hotel.rate === val && hotel.hasPool === hasPool && hotel.name.includes(hotelName));
-    this.setState({ hotels: updHotels, rate: val });
+    const { hasPool, hotelName } = this.state;
+    this.setState({ rate: val }, () => {
+      this.props.filterHotels({ rate: val, hasPool, hotelName });
+    });
   }
   filterHotelsByPool = (val) => {
-    const { initHotels, rate, hotelName } = this.state;
-    const updHotels = initHotels.filter(hotel => hotel.hasPool === val && hotel.rate === rate && hotel.name.includes(hotelName));
-    this.setState({ hotels: updHotels, hasPool: val });
+    const { rate, hotelName } = this.state;
+    this.setState({ hasPool: val }, () => {
+      this.props.filterHotels({ rate, hasPool: val, hotelName });
+    });
   }
   filterHotelsByName = (name) => {
-    const { initHotels, rate, hasPool } = this.state;
-    const updHotels = initHotels.filter(hotel => hotel.name.includes(name) && hotel.hasPool === hasPool && hotel.rate === rate);
-    this.setState({ hotels: updHotels, hotelName: name });
+    const { rate, hasPool } = this.state;
+    this.setState({ hotelName: name }, () => {
+      this.props.filterHotels({ rate, hasPool, hotelName: name });
+    });
   }
   render () {
-    const { hotels, stars, rate, hotelName } = this.state;
-    const { scrollPosition } = this.props;
+    const { rate, hotelName } = this.state;
+    const { showDetails, hotels, stars } = this.props;
     return (
       <div className="hotels-wrp">
         <div className="left-side-filters">
@@ -59,8 +51,7 @@ class Hotels extends Component{
         </div>
         <div className="right-side-hotels">
           <HotelsList
-            scrollPosition={scrollPosition}
-            showDetails={this.showDetails}
+            showDetails={showDetails}
             hotels={hotels || []}
             stars={stars}
           />
@@ -70,4 +61,18 @@ class Hotels extends Component{
   }
 }
 
-export default trackWindowScroll(Hotels);
+const mapStateToProps = ({ hotels, stars }) => ({
+  hotels,
+  stars
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  filterHotels: (filters) => {
+    dispatch(actions.filterHotels(filters));
+  },
+  showDetails: (hotelName) => {
+    dispatch(actions.showDetails(hotelName));
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hotels);

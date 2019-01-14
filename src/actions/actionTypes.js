@@ -1,0 +1,2 @@
+export const FILTER_HOTELS = 'FILTER_HOTELS';
+export const SHOW_DETAILS = 'SHOW_DETAILS';
