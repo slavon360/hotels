@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import Star from '../../UI/Icons/Star';
 
 import './stars-filter.scss';
@@ -9,9 +10,11 @@ const starsFilter = ({stars, rate, filterHotelsByRate}) => (
     <div className="stars-title">Stars</div>
     <div className="stars-wrp">
       {stars.map((value, index) => {
-        const attachedClasses = rate > index ? ['star', 'star-checked'] : ['star', 'star-unchecked'];
         const number = '' + (index + 1);
-        return (<button onClick={() => filterHotelsByRate(number)} key={index} className={attachedClasses.join(' ')}>
+        return (<button
+          onClick={() => filterHotelsByRate(number)}
+          key={index}
+          className={cx('star', { 'star-checked': rate > index, 'star-unchecked': rate <= index })}>
           <div className="star-value">{value}</div>
           <Star />
         </button>)
